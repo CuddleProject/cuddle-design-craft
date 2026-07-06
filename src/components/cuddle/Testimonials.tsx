@@ -26,7 +26,7 @@ const items = [
 export function Testimonials() {
   return (
     <section className="relative" style={{ backgroundColor: "#F4F1EA" }}>
-      <div className="mx-auto max-w-[1280px] px-6 py-[160px] md:px-14 md:py-[220px]">
+      <div className="mx-auto max-w-[1280px] px-6 pt-[140px] pb-[180px] md:px-14 md:pt-[180px] md:pb-[260px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

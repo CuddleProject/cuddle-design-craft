@@ -26,7 +26,7 @@ const specs = [
 export function SpecCards() {
   return (
     <section id="spec" className="relative" style={{ backgroundColor: "#F4F1EA" }}>
-      <div className="mx-auto max-w-[1280px] px-6 py-[160px] md:px-14 md:py-[220px]">
+      <div className="mx-auto max-w-[1280px] px-6 pt-[120px] pb-[160px] md:px-14 md:pt-[140px] md:pb-[200px]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

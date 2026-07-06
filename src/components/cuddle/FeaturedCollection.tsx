@@ -89,7 +89,7 @@ export function FeaturedCollection() {
 
   return (
     <section id="collection" className="relative overflow-hidden" style={{ backgroundColor: "#F4F1EA" }}>
-      <div className="mx-auto max-w-[1280px] px-6 py-[140px] md:px-14 md:py-[200px]">
+      <div className="mx-auto max-w-[1280px] px-6 pt-[180px] pb-[140px] md:px-14 md:pt-[240px] md:pb-[180px]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
