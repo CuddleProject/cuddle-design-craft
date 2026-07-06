@@ -37,7 +37,7 @@ export function FoundersNote() {
 
       <motion.div
         style={{ color: color as unknown as string }}
-        className="relative mx-auto max-w-[920px] px-6 py-[200px] md:px-10 md:py-[280px] text-center"
+        className="relative mx-auto max-w-[920px] px-6 pt-[220px] pb-[160px] md:px-10 md:pt-[320px] md:pb-[220px] text-center"
       >
         <motion.p
           initial={{ opacity: 0, y: 32 }}
