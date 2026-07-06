@@ -8,8 +8,11 @@ export function Masthead() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "10%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.06]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "8%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.05]);
+  // Parallax: title drifts up more slowly than background (depth)
+  const titleY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "-4%"]);
+  const titleOpacityScroll = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.9, 0.4]);
 
   return (
     <section
@@ -55,26 +58,38 @@ export function Masthead() {
       <div className="pointer-events-none absolute inset-0">
         <div className="mx-auto flex h-full max-w-[1400px] flex-col justify-center px-6 md:px-14">
           <h1 className="sr-only">Cuddle your tension away.</h1>
-          <motion.img
-            src={assets.heroTitle}
-            alt="Cuddle your tension away"
-            draggable={false}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.6, delay: 0.5, ease: EASE }}
-            className="relative select-none w-[86%] md:w-[68%] max-w-[900px] -mt-[8%] md:-mt-[6%] mix-blend-multiply"
-            style={{ filter: "drop-shadow(0 1px 0 rgba(244,241,234,0.35))" }}
-          />
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 1.1, ease: EASE }}
-            className="mt-12 md:mt-16 max-w-md text-sm md:text-base"
-            style={{ color: "#21262B", opacity: 0.72, fontFamily: "var(--font-body)", fontWeight: 300, letterSpacing: "0.01em" }}
+          <motion.div
+            className="relative w-[86%] md:w-[68%] max-w-[900px] -mt-[8%] md:-mt-[6%]"
+            style={{ y: titleY, opacity: titleOpacityScroll as unknown as number }}
           >
-            22-momme, 6A-grade mulberry silk. Built for sensitive sleepers, engineered for eight hours of quiet.
-          </motion.p>
+            <motion.img
+              src={assets.heroTitle}
+              alt="Cuddle your tension away"
+              draggable={false}
+              initial={{ opacity: 0, y: 14 }}
+              animate={
+                reduce
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 1, y: [0, -6, 0] }
+              }
+              transition={
+                reduce
+                  ? { duration: 1.4, ease: EASE }
+                  : {
+                      opacity: { duration: 1.8, delay: 0.5, ease: EASE },
+                      y: {
+                        duration: 9,
+                        delay: 0.5,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        repeatType: "mirror",
+                      },
+                    }
+              }
+              className="relative block w-full select-none mix-blend-multiply"
+              style={{ filter: "drop-shadow(0 1px 0 rgba(244,241,234,0.35))" }}
+            />
+          </motion.div>
         </div>
       </div>
 
