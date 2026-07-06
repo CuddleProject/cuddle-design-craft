@@ -26,47 +26,65 @@ const items = [
 export function Testimonials() {
   return (
     <section className="relative" style={{ backgroundColor: "#F4F1EA" }}>
-      <div className="mx-auto max-w-[1200px] px-6 py-[120px] md:px-10 md:py-[160px]">
+      <div className="mx-auto max-w-[1280px] px-6 py-[160px] md:px-14 md:py-[220px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.9, ease: EASE }}
-          className="mb-20 inline-flex flex-wrap items-baseline gap-x-3 text-[clamp(1.8rem,3.6vw,2.8rem)]"
-          style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance" }}
+          transition={{ duration: 1.3, ease: EASE }}
+          className="mb-32 md:mb-40 inline-flex flex-wrap items-baseline gap-x-4 text-[clamp(1.8rem,3.8vw,3rem)] md:pl-[4%]"
+          style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance", letterSpacing: "-0.005em" }}
         >
           <span>What</span>
-          <img src={assets.handSensitiveSleepers} alt="sensitive sleepers" className="inline-block h-[1em] md:h-[1.15em] w-auto translate-y-[0.15em]" />
+          <img
+            src={assets.handSensitiveSleepers}
+            alt="sensitive sleepers"
+            className="inline-block h-[0.95em] md:h-[1.1em] w-auto translate-y-[0.08em]"
+          />
           <span>actually notice.</span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-10">
-          {items.map((t, i) => (
-            <motion.figure
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-15%" }}
-              transition={{ duration: 0.9, delay: i * 0.18, ease: EASE }}
-              className="flex flex-col"
-              style={{
-                marginTop: i === 1 ? "3rem" : i === 2 ? "1.5rem" : 0,
-              }}
-            >
-              <img src={t.avatar} alt={t.name} className="mb-6 h-40 w-40 object-contain" loading="lazy" />
-              <blockquote
-                className="text-lg md:text-xl leading-[1.5]"
-                style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance" }}
+        {/* Asymmetric grid — each testimonial an individual story */}
+        <div className="grid grid-cols-1 gap-24 md:grid-cols-12 md:gap-x-8 md:gap-y-36">
+          {items.map((t, i) => {
+            // Distinct placement per card — nothing shares vertical rhythm
+            const placement = [
+              "md:col-span-5 md:col-start-1",
+              "md:col-span-4 md:col-start-8 md:mt-40",
+              "md:col-span-5 md:col-start-3 md:mt-16",
+            ][i];
+            return (
+              <motion.figure
+                key={i}
+                initial={{ opacity: 0, y: 48 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-15%" }}
+                transition={{ duration: 1.3, delay: i * 0.2, ease: EASE }}
+                className={`flex flex-col ${placement}`}
               >
-                "{t.quote}"
-              </blockquote>
-              <figcaption className="mt-6 text-sm" style={{ color: "#21262B" }}>
-                <span className="opacity-90">{t.name}</span>
-                <span className="mx-2 opacity-40">·</span>
-                <span className="opacity-60">{t.detail}</span>
-              </figcaption>
-            </motion.figure>
-          ))}
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="mb-10 h-56 w-56 md:h-64 md:w-64 object-contain -ml-4"
+                  loading="lazy"
+                />
+                <blockquote
+                  className="text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55]"
+                  style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance", maxWidth: "28ch" }}
+                >
+                  "{t.quote}"
+                </blockquote>
+                <figcaption
+                  className="mt-8 text-[10.5px] tracking-[0.28em] uppercase"
+                  style={{ color: "#21262B", fontFamily: "var(--font-body)" }}
+                >
+                  <span className="opacity-85">{t.name}</span>
+                  <span className="mx-2 opacity-30">/</span>
+                  <span className="opacity-55">{t.detail}</span>
+                </figcaption>
+              </motion.figure>
+            );
+          })}
         </div>
       </div>
     </section>

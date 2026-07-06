@@ -28,23 +28,29 @@ export function Header() {
           borderBottom: scrolled ? "1px solid rgba(33,38,43,0.06)" : "1px solid transparent",
         }}
       />
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
-        <nav className="hidden gap-8 text-[11px] tracking-[0.22em] uppercase text-jet-black/80 md:flex" style={{ color: "#21262B" }}>
-          <a href="#collection" className="transition-opacity hover:opacity-60">Shop</a>
-          <a href="#spec" className="transition-opacity hover:opacity-60">The Science</a>
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-12 md:py-7">
+        <nav
+          className="hidden gap-10 text-[10.5px] tracking-[0.28em] uppercase md:flex"
+          style={{ color: "#21262B", fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          <a href="#collection" className="transition-opacity duration-500 hover:opacity-50">Shop</a>
+          <a href="#spec" className="transition-opacity duration-500 hover:opacity-50">The Science</a>
         </nav>
         <a href="/" className="flex-1 md:flex-none flex justify-center">
-          <img src={assets.brandLogoBlack} alt="Cuddle Project" className="h-8 md:h-9 w-auto" />
+          <img src={assets.brandLogoBlack} alt="Cuddle Project" className="h-7 md:h-8 w-auto" />
         </a>
-        <nav className="hidden items-center gap-8 text-[11px] tracking-[0.22em] uppercase md:flex" style={{ color: "#21262B" }}>
-          <a href="#quiet-hours" className="transition-opacity hover:opacity-60">Quiet Hours</a>
-          <a href="#about" className="transition-opacity hover:opacity-60">About Us</a>
-          <button aria-label="Cart" className="transition-opacity hover:opacity-60">
-            <ShoppingBag className="h-4 w-4" strokeWidth={1.4} />
+        <nav
+          className="hidden items-center gap-10 text-[10.5px] tracking-[0.28em] uppercase md:flex"
+          style={{ color: "#21262B", fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          <a href="#quiet-hours" className="transition-opacity duration-500 hover:opacity-50">Quiet Hours</a>
+          <a href="#about" className="transition-opacity duration-500 hover:opacity-50">About Us</a>
+          <button aria-label="Cart" className="transition-opacity duration-500 hover:opacity-50">
+            <ShoppingBag className="h-4 w-4" strokeWidth={1.25} />
           </button>
         </nav>
         <button aria-label="Cart" className="md:hidden" style={{ color: "#21262B" }}>
-          <ShoppingBag className="h-5 w-5" strokeWidth={1.4} />
+          <ShoppingBag className="h-5 w-5" strokeWidth={1.25} />
         </button>
       </div>
     </motion.header>
