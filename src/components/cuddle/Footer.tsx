@@ -13,10 +13,13 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
         {/* Top */}
         <div className="flex flex-col gap-14 md:flex-row md:items-start md:justify-between">
-          <a href="#products" className="inline-block transition-opacity hover:opacity-70">
-            <img src={assets.footerCta} alt="Cuddle Your Tension Away →" className="h-9 md:h-11 w-auto" />
+          <a
+            href="#products"
+            className="inline-block transition-all duration-500 hover:translate-x-2 hover:opacity-80"
+          >
+            <img src={assets.footerCta} alt="Cuddle Your Tension Away →" className="h-12 md:h-16 w-auto" />
           </a>
-          <img src={assets.brandLogoWhite} alt="Cuddle Project" className="h-8 md:h-10 w-auto opacity-90 md:order-last" />
+          <img src={assets.brandLogoWhite} alt="Cuddle Project" className="h-8 md:h-10 w-auto opacity-85 md:order-last" />
         </div>
 
         <div className="mt-20 grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-8">
@@ -36,7 +39,7 @@ export function Footer() {
           ))}
 
           <div className="md:col-span-6">
-            <img src={assets.footerSubscribe} alt="Subscribe for updates" className="h-6 md:h-7 w-auto" />
+            <img src={assets.footerSubscribe} alt="Subscribe for updates" className="h-8 md:h-10 w-auto" />
             <p className="mt-4 max-w-md text-sm opacity-70">
               — only when we actually have something worth saying about sensory overload. No fluff.
             </p>
