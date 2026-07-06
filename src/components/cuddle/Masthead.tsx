@@ -51,45 +51,26 @@ export function Masthead() {
       {/* Film grain */}
       <div aria-hidden className="grain-overlay" />
 
-      {/* Editorial title composition — HTML "Cuddle Your Tension" + tilted "AWAY" PNG accent */}
+      {/* Editorial title composition — handwritten PNG as the primary title */}
       <div className="pointer-events-none absolute inset-0">
         <div className="mx-auto flex h-full max-w-[1400px] flex-col justify-center px-6 md:px-14">
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+          <h1 className="sr-only">Cuddle your tension away.</h1>
+          <motion.img
+            src={assets.heroTitle}
+            alt="Cuddle your tension away"
+            draggable={false}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 0.35, ease: EASE }}
-            className="relative select-none"
-            style={{
-              fontFamily: "var(--font-display)",
-              color: "#0F1B3D",
-              lineHeight: 0.94,
-              letterSpacing: "-0.02em",
-              fontSize: "clamp(3rem, 9.5vw, 8.5rem)",
-              textWrap: "balance",
-              maxWidth: "min(78vw, 1000px)",
-            }}
-          >
-            <span className="block">Cuddle</span>
-            <span className="block">Your Tension</span>
-            {/* "AWAY" accent — screen-reader hidden because it's inside the H1 as an image */}
-            <motion.img
-              src={assets.heroTitle}
-              alt=""
-              aria-hidden
-              draggable={false}
-              initial={{ opacity: 0, y: -18, rotate: -6 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              transition={{ duration: 1.4, delay: 0.9, ease: EASE }}
-              className="absolute right-[2%] top-[-6%] md:right-[6%] md:top-[-10%] w-[46%] md:w-[36%] max-w-[420px] select-none"
-            />
-            <span className="sr-only"> away.</span>
-          </motion.h1>
+            transition={{ duration: 1.6, delay: 0.5, ease: EASE }}
+            className="relative select-none w-[86%] md:w-[68%] max-w-[900px] -mt-[8%] md:-mt-[6%] mix-blend-multiply"
+            style={{ filter: "drop-shadow(0 1px 0 rgba(244,241,234,0.35))" }}
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 1.3, ease: EASE }}
-            className="mt-8 md:mt-10 max-w-md text-sm md:text-base"
+            transition={{ duration: 1.2, delay: 1.1, ease: EASE }}
+            className="mt-12 md:mt-16 max-w-md text-sm md:text-base"
             style={{ color: "#21262B", opacity: 0.72, fontFamily: "var(--font-body)", fontWeight: 300, letterSpacing: "0.01em" }}
           >
             22-momme, 6A-grade mulberry silk. Built for sensitive sleepers, engineered for eight hours of quiet.
