@@ -1,10 +1,23 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# AGENTS.md
+
+## Workflow
+- Work on one homepage section at a time.
+- Never modify unrelated sections in the same task.
+- Explain the implementation plan before coding.
+- Run lint and build before finishing.
+
+## Commit Rules
+One logical change per commit.
+
+Examples:
+- Hero motion refinement
+- Home story background transition
+- FAQ responsive fix
+
+## Definition of Done
+- Build passes.
+- Lint passes.
+- Responsive verified.
+- Motion reviewed.
+- Accessibility preserved.
+- Acceptance criteria satisfied.
