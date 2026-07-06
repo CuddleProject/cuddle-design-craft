@@ -7,7 +7,6 @@ export function Masthead() {
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "12%"]);
-  const blur = useTransform(scrollYProgress, [0, 1], ["0px", "6px"]);
 
   return (
     <section ref={ref} className="relative h-[100svh] min-h-[640px] w-full overflow-hidden" style={{ backgroundColor: "#21262B" }}>
@@ -16,7 +15,7 @@ export function Masthead() {
         initial={{ opacity: 0, filter: "blur(14px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-        style={{ y, filter: reduce ? undefined : blur }}
+        style={{ y }}
       >
         <img
           src={assets.heroBanner}
