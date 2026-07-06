@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { assets } from "@/assets/cuddle";
 import { EASE } from "./Reveal";
 
@@ -26,9 +27,47 @@ const child = {
 
 export function HeroSequence() {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  // 4-stage color journey: parchment → sky → sage → terracotta
+  const bg = useTransform(
+    scrollYProgress,
+    [0, 0.33, 0.66, 1],
+    ["#F4F1EA", "#BCCCD4", "#8CA196", "#C97C5D"],
+  );
+  // Grain fades out as calm arrives
+  const grainOpacity = useTransform(scrollYProgress, [0, 0.4, 1], [0.28, 0.14, 0.02]);
+  const textColor = useTransform(
+    scrollYProgress,
+    [0, 0.66, 1],
+    ["#21262B", "#21262B", "#F4F1EA"],
+  );
+
   return (
-    <section className="relative overflow-hidden atmosphere-light">
-      <div className="mx-auto max-w-[1280px] px-6 pt-[160px] pb-[200px] md:px-16 md:pt-[220px] md:pb-[260px] space-y-[200px] md:space-y-[280px]">
+    <motion.section
+      ref={ref}
+      className="relative overflow-hidden"
+      style={{ backgroundColor: bg as unknown as string }}
+    >
+      {/* Paper-noise texture that softens as scroll progresses */}
+      <motion.div
+        aria-hidden
+        className="grain-overlay pointer-events-none"
+        style={{ opacity: grainOpacity as unknown as number, mixBlendMode: "multiply" }}
+      />
+      {/* Soft radial halo for depth on top of the color shift */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(120% 80% at 50% 20%, rgba(244,241,234,0.35) 0%, rgba(244,241,234,0) 55%)",
+        }}
+      />
+      <motion.div
+        className="relative mx-auto max-w-[1280px] px-6 pt-[160px] pb-[200px] md:px-16 md:pt-[220px] md:pb-[260px] space-y-[200px] md:space-y-[280px]"
+        style={{ color: textColor as unknown as string }}
+      >
         {/* Row 1 — pen illustration large left, terse text tucked right */}
         <Row>
           <motion.div variants={child} className="md:col-span-6 md:pl-[6%]">
@@ -42,7 +81,7 @@ export function HeroSequence() {
           <motion.p
             variants={child}
             className="md:col-span-5 md:col-start-8 text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.2]"
-            style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance", maxWidth: "22ch" }}
+            style={{ fontFamily: "var(--font-display)", textWrap: "balance", maxWidth: "22ch" }}
           >
             You've clicked the same pen forty times this hour.
           </motion.p>
@@ -53,7 +92,7 @@ export function HeroSequence() {
           <motion.p
             variants={child}
             className="md:col-span-6 md:col-start-2 text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.2] order-2 md:order-1"
-            style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance", maxWidth: "20ch" }}
+            style={{ fontFamily: "var(--font-display)", textWrap: "balance", maxWidth: "20ch" }}
           >
             That's your body trying to calm itself down.
           </motion.p>
@@ -81,7 +120,7 @@ export function HeroSequence() {
           <motion.p
             variants={child}
             className="md:col-span-5 md:col-start-8 text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.2]"
-            style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance", maxWidth: "24ch" }}
+            style={{ fontFamily: "var(--font-display)", textWrap: "balance", maxWidth: "24ch" }}
           >
             We just never let it finish the job when the day ends.
           </motion.p>
@@ -94,11 +133,11 @@ export function HeroSequence() {
           viewport={{ once: true, margin: "-20%" }}
           transition={{ duration: 1.8, ease: EASE }}
           className="text-center uppercase text-[clamp(0.8rem,1.3vw,0.95rem)]"
-          style={{ color: "#21262B", fontFamily: "var(--font-body)", fontWeight: 300, opacity: 0.7 }}
+          style={{ fontFamily: "var(--font-body)", fontWeight: 300, opacity: 0.75 }}
         >
           This is where it takes over.
         </motion.p>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

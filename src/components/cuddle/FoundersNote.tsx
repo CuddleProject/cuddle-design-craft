@@ -45,13 +45,23 @@ export function FoundersNote() {
           viewport={{ once: true, margin: "-20%" }}
           transition={{ duration: 1.6, ease: EASE }}
           className="inline-flex flex-wrap items-baseline justify-center gap-x-4 gap-y-3 text-[clamp(1.8rem,4vw,3rem)] leading-[1.25]"
-          style={{ fontFamily: "var(--font-display)", textWrap: "balance", letterSpacing: "-0.005em" }}
+          style={{
+            fontFamily: "var(--font-display)",
+            textWrap: "balance",
+            letterSpacing: "-0.005em",
+            backgroundImage: "linear-gradient(135deg, #21262B 0%, #21262B 55%, #C97C5D 100%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            color: "transparent",
+          }}
         >
           <span>It doesn't just cover you; it</span>
           <img
             src={assets.handIronsOut}
             alt="irons out"
             className="inline-block h-[0.95em] md:h-[1.1em] w-auto translate-y-[0.08em]"
+            style={{ WebkitTextFillColor: "initial" }}
           />
           <span>the fragments of your day.</span>
         </motion.p>

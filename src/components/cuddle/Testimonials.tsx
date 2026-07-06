@@ -51,7 +51,7 @@ export function Testimonials() {
             const placement = [
               "md:col-span-5 md:col-start-1",
               "md:col-span-4 md:col-start-8 md:mt-40",
-              "md:col-span-5 md:col-start-3 md:mt-16",
+              "md:col-span-5 md:col-start-3 md:-mt-16",
             ][i];
             return (
               <motion.figure

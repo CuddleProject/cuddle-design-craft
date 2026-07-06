@@ -65,8 +65,8 @@ export function Faq() {
         </motion.h2>
       </div>
 
-      {/* Desktop: photo with overlaid questions */}
-      <div className="relative hidden md:block">
+      {/* Desktop (lg+): photo with overlaid questions. Tablet uses stacked list to prevent overlap. */}
+      <div className="relative hidden lg:block">
         <div className="relative mx-auto max-w-[1500px] px-6 md:px-10 pb-[120px]">
           <div className="relative aspect-[16/9] w-full overflow-hidden">
             <img
@@ -143,10 +143,10 @@ export function Faq() {
         </div>
       </div>
 
-      {/* Mobile: photo above, stacked accordion below */}
-      <div className="md:hidden">
+      {/* Mobile + Tablet: photo above, stacked accordion below (no overlap on expand) */}
+      <div className="lg:hidden">
         <img src={assets.faqBanner} alt="" className="w-full object-cover" loading="lazy" />
-        <div className="px-6 py-12 space-y-4">
+        <div className="mx-auto max-w-[720px] px-6 py-16 md:py-20 space-y-4 md:space-y-6">
           {faqs.map((f, i) => (
             <div key={i} className="border-b" style={{ borderColor: "rgba(33,38,43,0.12)" }}>
               <button onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-start gap-3 py-4 text-left">

@@ -9,8 +9,19 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="relative" style={{ backgroundColor: "#21262B", color: "#F4F1EA" }}>
-      <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
+    <footer className="relative overflow-hidden" style={{ backgroundColor: "#21262B", color: "#F4F1EA" }}>
+      {/* Silk-glow inherited from the CTA above — subtle, diffused, no neon */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-40 h-[520px] w-[120%] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(201,124,93,0.28) 0%, rgba(201,124,93,0.10) 45%, rgba(201,124,93,0) 75%)",
+          filter: "blur(60px)",
+        }}
+      />
+      <div aria-hidden className="grain-overlay pointer-events-none" style={{ opacity: 0.05, mixBlendMode: "overlay" }} />
+      <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-12 md:py-32">
         {/* Top */}
         <div className="flex flex-col gap-14 md:flex-row md:items-start md:justify-between">
           <a
