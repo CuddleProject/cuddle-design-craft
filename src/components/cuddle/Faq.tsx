@@ -46,27 +46,44 @@ export function Faq() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* heading */}
-      <div className="mx-auto max-w-[1000px] px-6 pt-[120px] pb-16 md:px-10 md:pt-[160px] text-center">
+      <div className="mx-auto max-w-[1100px] px-6 pt-[160px] pb-24 md:px-10 md:pt-[220px] text-center">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.9, ease: EASE }}
-          className="inline-flex flex-wrap items-baseline justify-center gap-x-3 gap-y-2 text-[clamp(1.8rem,3.6vw,2.8rem)]"
-          style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance" }}
+          transition={{ duration: 1.3, ease: EASE }}
+          className="inline-flex flex-wrap items-baseline justify-center gap-x-4 gap-y-3 text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.15]"
+          style={{ fontFamily: "var(--font-display)", color: "#21262B", textWrap: "balance", letterSpacing: "-0.005em" }}
         >
           <span>A smoother surface, a</span>
-          <img src={assets.handCalmerWay} alt="calmer way" className="inline-block h-[1em] md:h-[1.15em] w-auto translate-y-[0.15em]" />
+          <img
+            src={assets.handCalmerWay}
+            alt="calmer way"
+            className="inline-block h-[0.95em] md:h-[1.1em] w-auto translate-y-[0.08em]"
+          />
           <span>into sleep.</span>
         </motion.h2>
       </div>
 
       {/* Desktop: photo with overlaid questions */}
       <div className="relative hidden md:block">
-        <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="relative mx-auto max-w-[1500px] px-6 md:px-10 pb-[120px]">
           <div className="relative aspect-[16/9] w-full overflow-hidden">
-            <img src={assets.faqBanner} alt="A stack of silk pillows beside a warm cup" className="h-full w-full object-cover" loading="lazy" />
-            <div aria-hidden className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(33,38,43,0.15), rgba(33,38,43,0.05) 40%, rgba(33,38,43,0.25))" }} />
+            <img
+              src={assets.faqBanner}
+              alt="A stack of silk pillows beside a warm cup"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(33,38,43,0.28), rgba(33,38,43,0.12) 45%, rgba(33,38,43,0.42))",
+              }}
+            />
+            <div aria-hidden className="grain-overlay" style={{ opacity: 0.07 }} />
 
             {faqs.map((f, i) => (
               <div key={i} className={`absolute ${f.pos}`}>
