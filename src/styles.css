@@ -234,6 +234,22 @@
     linear-gradient(180deg, #F4F1EA 0%, #C9CFC9 45%, #6E7D75 100%);
 }
 
+@utility atmosphere-silk-glow {
+  background:
+    radial-gradient(60% 45% at 50% 55%, rgba(201,124,93,0.28) 0%, rgba(201,124,93,0.10) 40%, rgba(33,38,43,0) 72%),
+    radial-gradient(120% 80% at 50% 100%, rgba(33,38,43,0.75) 0%, rgba(33,38,43,0.35) 45%, rgba(33,38,43,0) 80%),
+    linear-gradient(180deg, #2A2F34 0%, #23282D 55%, #21262B 100%);
+}
+
+@keyframes silk-glow-pulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@utility silk-glow-pulse {
+  animation: silk-glow-pulse 7s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .scroll-hint {
