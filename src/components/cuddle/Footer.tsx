@@ -36,7 +36,7 @@ export function Footer() {
           ))}
 
           <div className="md:col-span-6">
-            <img src={assets.footerSubscribe} alt="Subscribe for updates" className="h-6 md:h-7 w-auto brightness-0 invert" />
+            <img src={assets.footerSubscribe} alt="Subscribe for updates" className="h-6 md:h-7 w-auto" />
             <p className="mt-4 max-w-md text-sm opacity-70">
               — only when we actually have something worth saying about sensory overload. No fluff.
             </p>
