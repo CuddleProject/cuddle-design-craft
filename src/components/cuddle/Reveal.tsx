@@ -6,9 +6,9 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export function Reveal({
   children,
   delay = 0,
-  y = 24,
+  y = 16,
   className,
-  duration = 0.8,
+  duration = 1.2,
 }: {
   children: ReactNode;
   delay?: number;
@@ -32,12 +32,12 @@ export function Reveal({
 
 export const staggerParent: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.16, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.22, delayChildren: 0.12 } },
 };
 
 export const staggerChild: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 1.1, ease: EASE } },
 };
 
 export { EASE };
