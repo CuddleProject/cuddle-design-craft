@@ -80,10 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Cuddle Project — 22-momme Silk for Sensitive Sleepers" },
       { name: "description", content: "Tactile self-regulation, all night. 22-momme, 6A-grade mulberry silk. 100% tagless. 60-night trial." },
       { name: "author", content: "Cuddle Project" },
-      { property: "og:title", content: "Cuddle Project — Cuddle Your Tension Away" },
-      { property: "og:description", content: "Silk sleep essentials engineered for sensitive sleepers. 22-momme, 6A-grade, 100% tagless." },
+      { property: "og:title", content: "Cuddle Project — 22-momme Silk for Sensitive Sleepers" },
+      { property: "og:description", content: "Tactile self-regulation, all night. 22-momme, 6A-grade mulberry silk. 100% tagless. 60-night trial." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Cuddle Project — 22-momme Silk for Sensitive Sleepers" },
+      { name: "twitter:description", content: "Tactile self-regulation, all night. 22-momme, 6A-grade mulberry silk. 100% tagless. 60-night trial." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b9206dba-3799-4c25-838a-ef892f2aa558/id-preview-ad169845--ed5d5edc-8952-4528-a50b-7b84962cc9db.lovable.app-1783317363591.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b9206dba-3799-4c25-838a-ef892f2aa558/id-preview-ad169845--ed5d5edc-8952-4528-a50b-7b84962cc9db.lovable.app-1783317363591.png" },
     ],
     links: [
       {
