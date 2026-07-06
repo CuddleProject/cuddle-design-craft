@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { assets } from "@/assets/cuddle";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
